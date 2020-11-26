@@ -23,11 +23,11 @@ const Curso = sequelize.define(name,{
 });
 
 Curso.associate = (models) =>{
-    Curso.belongsTo(models.aluno,{
+    Curso.hasMany(models.aluno,{
         foreignKey:{
-            name:'id_aluno'
+        name:'id_aluno'
         },
-        as:'aluno'
+        as:'alunos'   
     })
     Curso.belongsToMany(models.turma,{
         through:'curso_turma',

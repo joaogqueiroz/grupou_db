@@ -3,11 +3,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const db = require('./app/db/models');
-/*
+
 db.sequelize.sync({force:true}).then(()=>{
     console.log('Tabelas dropadas e Sincronizadas')
 })
-*/
+
 const app = express();
 
 app.use(bodyParser.json());

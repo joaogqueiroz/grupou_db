@@ -28,11 +28,11 @@ Aluno.associate = (models) =>{
         },
         as:'questoesdia'   
     })
-    Aluno.hasMany(models.curso,{
+    Aluno.belongsTo(models.curso,{
         foreignKey:{
-        name:'id_curso'
+            name:'id_curso'
         },
-        as:'cursos'   
+        as:'curso'
     })
     Aluno.hasMany(models.tarefa,{
         foreignKey:{
