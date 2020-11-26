@@ -8,18 +8,21 @@ const models= require('../db/models');
 
 exports.index = async() =>{
     const resultado = await models.curso.findAll({
+        include:['alunos']
 
     });
     return resultado;
 }
 exports.show = async(id) =>{
     const resultado = await models.curso.findByPk(id,{
+        include:['alunos']
 
     });
     return resultado;
 }
 exports.store = async(curso) =>{
     const resultado = await models.curso.create(curso,{
+        include:['alunos']
 
     });
     return resultado;

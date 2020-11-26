@@ -8,19 +8,19 @@ const models= require('../db/models');
 
 exports.index = async() =>{
     const resultado = await models.aluno.findAll({
-        include:['cursos']
+        include:['curso']
     });
     return resultado;
 }
 exports.show = async(id) =>{
     const resultado = await models.aluno.findByPk(id,{
-        include:['cursoss']
+        include:['curso']
     });
     return resultado;
 }
 exports.store = async(aluno) =>{
     const resultado = await models.aluno.create(aluno,{
-        include:['cursos']
+        include:['curso']
     });
     return resultado;
 }
