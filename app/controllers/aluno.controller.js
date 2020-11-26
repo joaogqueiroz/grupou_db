@@ -7,31 +7,31 @@ const models= require('../db/models');
 //destroy DELETE
 
 exports.index = async() =>{
-    const resultado = await models.usuario.findAll({
-        include:['aluno','professor','questoes']
+    const resultado = await models.aluno.findAll({
+        include:['cursos']
     });
     return resultado;
 }
 exports.show = async(id) =>{
-    const resultado = await models.usuario.findByPk(id,{
-        include:['aluno','professor','questoes']
+    const resultado = await models.aluno.findByPk(id,{
+        include:['cursoss']
     });
     return resultado;
 }
-exports.store = async(usuario) =>{
-    const resultado = await models.usuario.create(usuario,{
-        include: ['aluno','professor','questoes']
+exports.store = async(aluno) =>{
+    const resultado = await models.aluno.create(aluno,{
+        include:['cursos']
     });
     return resultado;
 }
-exports.update = async(usuario,id) =>{
-    const resultado = await models.usuario.update(usuario,{
+exports.update = async(aluno,id) =>{
+    const resultado = await models.aluno.update(aluno,{
         where: {id:id}
     });
     return resultado;
 }
 exports.destroy = async(id) =>{
-    const resultado = await models.usuario.destroy({
+    const resultado = await models.aluno.destroy({
         where:{id:id}
     });
     return resultado;
